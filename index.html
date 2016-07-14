@@ -16,24 +16,8 @@
 		</div> 
 	</div>
 
-	<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
-	<script type="text/javascript">
+	<script type="text/javascript" src="giphy.js"></script>
 		
-		document.querySelector(".submit").onclick=function(){
-
-			var key;
-			var name = document.querySelector(".name")
-			console.log(name);
-			var url = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag="
-
-			$.ajax({url: queryURL, method: 'GET'})
-
-				.done(function(response){
-
-				});
-		};
-	</script>
-	
 </body>
 </html>
 
