@@ -1,6 +1,6 @@
-$function(){
-
-}
+$(function() {
+	populate(animals, 'animalName', '.animalName');
+});
 
 var animals = ["dog", "cat", "rabbit", "hamster", "skunk", 
 				"goldfish", "bird", "ferret", "turtle", 
@@ -21,7 +21,7 @@ function populate(useArray, newClass, addArea){
 
 //click event on the animal button
 $(document).on('click', '.animalName', function(){
-	$('#animals').empty();
+	$('.gifAnimal').empty();
 	$('.animalName').removeClass('active');
 	$(this).addClass('active');
 
@@ -41,30 +41,22 @@ $(document).on('click', '.animalName', function(){
 			//create p tag
 			//include text for rating
 			var p = $('<p>').text("Rating: " + rating);
-
-
+			//save url and still
+			var animated = results[i].images.fixed_height.url;
+			var still = results[i].images.fixed_still.url;
+			//create image tag
+			var image = $('<img>');
+			//include following attributes on the tag
+			image.attr('src', still);
+			image.attr('data-state', still);
+			image.addClass('animalImage');
+			//append p and image onto div
+			div.append(p);
+			div.append(image);
+			//append div to the html
+			$('gifAnimal').append(div);
 		}
-	})
-})
+	});
+});
 
-
-
-
-
-
-
-document.querySelector(".submit").onclick = function(event) {
-	//retrieve the input from the search box
-	var search = document.querySelector(".name");
-	var key = search.value;
-	console.log(key);
-	//form the url 
-	var url = "http://api.giphy.com/v1/gifs/search?q=" + key + "&api_key=dc6zaTOxFJmzC&limit=10";
-	//set request function to x, this is a function from ajax
-	var x = new XMLHttpRequest();
-	x.open("GET", "url", true);
-	x.send();
-	console.log(x.responseText);
-
-	event.preventDefault();
-}
+$(document).on(click)
