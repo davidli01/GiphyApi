@@ -58,5 +58,7 @@ $(document).on('click', '.animalName', function(){
 		}
 	});
 });
+//click event on image tag thats created from search loop
+$(document).on('click', '.image', function(){
 
-$(document).on(click)
+})
