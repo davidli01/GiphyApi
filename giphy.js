@@ -10,7 +10,7 @@ var animals = ["dog", "cat", "rabbit", "hamster", "skunk",
 function populate(useArray, newClass, addArea){
 	$(addArea).empty();
 
-	for (var i = 0, i < useArray.length; i++){
+	for (var i = 0; i < useArray.length; i++){
 		var a = $('<button>')
 		a.addClass(newClass);
 		a.attr('data-type', useArray[i]);
@@ -60,5 +60,9 @@ $(document).on('click', '.animalName', function(){
 });
 //click event on image tag thats created from search loop
 $(document).on('click', '.image', function(){
+	var state = $(this).attr('data-state');
 
+	if(state === 'still'){
+		$(this).attr('src', $(this).data('animate'));
+	}
 })
